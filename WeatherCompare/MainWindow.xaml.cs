@@ -40,10 +40,10 @@ namespace WeatherCompare
                 {
                     windowMain.lblStatus.Content = "Rufe Token vom Server ab...";
                     //TODO: replace with SecureString and/or Windows Credential Manager
-                    AccessData accessdata = await session.GetAccessTokenFromPassword();
-                    Settings.Default.AccessToken = accessdata.AccessToken;
-                    Settings.Default.RefreshToken = accessdata.RefreshToken;
-                    Settings.Default.TokenExpiresIn = dto.ToUnixTimeSeconds() + accessdata.ExpiresIn;
+                    AccessData accessData = await session.GetAccessTokenFromPassword();
+                    Settings.Default.AccessToken = accessData.AccessToken;
+                    Settings.Default.RefreshToken = accessData.RefreshToken;
+                    Settings.Default.TokenExpiresIn = dto.ToUnixTimeSeconds() + accessData.ExpiresIn;
                     Settings.Default.Save();
                 }
                 else if (Settings.Default.TokenExpiresIn <= dto.ToUnixTimeSeconds() + 600) // refresh token 10 minutes earlier than it runs out due to possible differences from local time and server time
