@@ -1,0 +1,33 @@
+﻿<Window x:Name="windowMain" x:Class="WeatherCompare.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherCompare"
+        mc:Ignorable="d"
+        Title="WeatherCompare" Height="350" Width="600" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Separator RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Label x:Name="lblStationName1" Content="---" Margin="0,10,297,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" RenderTransformOrigin="0.237,0.577" FontSize="24" HorizontalAlignment="Center" Width="297" Height="42"/>
+        <Label x:Name="lblRealStationName1" Content="---" Margin="0,52,297,0" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="297" Height="26"/>
+        <Label x:Name="lblTemperature1" Content="---" Margin="0,139,297,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="24" RenderTransformOrigin="0.287,0.405" HorizontalAlignment="Center" Width="297" Height="42"/>
+        <Label x:Name="lblStationName2" Content="---" Margin="297,10,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" RenderTransformOrigin="0.237,0.577" FontSize="24" HorizontalAlignment="Center" Width="297" Height="42"/>
+        <Label x:Name="lblRealStationName2" Content="---" Margin="297,52,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="297" Height="26"/>
+        <Label x:Name="lblTemperature2" Content="---" Margin="297,139,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="24" RenderTransformOrigin="0.287,0.405" HorizontalAlignment="Center" Width="297" Height="42"/>
+        <Button x:Name="btnExit" Content="Beenden" HorizontalAlignment="Left" Margin="505,285,0,0" VerticalAlignment="Top" Width="75" Click="btnExit_Click"/>
+        <Button x:Name="btnRefresh" Content="Aktualisieren" HorizontalAlignment="Left" Margin="405,285,0,0" VerticalAlignment="Top" Width="95" Click="btnRefresh_Click" IsEnabled="False"/>
+        <Label x:Name="lblStatus" Content="Lade..." HorizontalAlignment="Left" Margin="12,282,0,0" VerticalAlignment="Top" Width="285"/>
+    </Grid>
+</Window>
