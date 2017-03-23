@@ -26,54 +26,54 @@ namespace WeatherCompare.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string clientID {
+        public string ClientId {
             get {
-                return ((string)(this["clientID"]));
+                return ((string)(this["ClientId"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string clientSecret {
+        public string ClientSecret {
             get {
-                return ((string)(this["clientSecret"]));
+                return ((string)(this["ClientSecret"]));
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string access_token {
+        public string AccessToken {
             get {
-                return ((string)(this["access_token"]));
+                return ((string)(this["AccessToken"]));
             }
             set {
-                this["access_token"] = value;
+                this["AccessToken"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string refresh_token {
+        public string RefreshToken {
             get {
-                return ((string)(this["refresh_token"]));
+                return ((string)(this["RefreshToken"]));
             }
             set {
-                this["refresh_token"] = value;
+                this["RefreshToken"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public long tokenExpiresIn {
+        public long TokenExpiresIn {
             get {
-                return ((long)(this["tokenExpiresIn"]));
+                return ((long)(this["TokenExpiresIn"]));
             }
             set {
-                this["tokenExpiresIn"] = value;
+                this["TokenExpiresIn"] = value;
             }
         }
     }

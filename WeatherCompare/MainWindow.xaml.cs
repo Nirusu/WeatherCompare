@@ -36,34 +36,34 @@ namespace WeatherCompare
                 APIResponse[] apiResponse = { null, null };
                 DateTimeOffset dto = new DateTimeOffset();
                 dto = DateTime.UtcNow;
-                if (Settings.Default.refresh_token.Equals(""))
+                if (Settings.Default.RefreshToken.Equals(""))
                 {
                     windowMain.lblStatus.Content = "Rufe Token vom Server ab...";
                     //TODO: replace with SecureString and/or Windows Credential Manager
                     AccessData accessdata = await session.GetAccessTokenFromPassword();
-                    Settings.Default.access_token = accessdata.AccessToken;
-                    Settings.Default.refresh_token = accessdata.RefreshToken;
-                    Settings.Default.tokenExpiresIn = dto.ToUnixTimeSeconds() + accessdata.ExpiresIn;
+                    Settings.Default.AccessToken = accessdata.AccessToken;
+                    Settings.Default.RefreshToken = accessdata.RefreshToken;
+                    Settings.Default.TokenExpiresIn = dto.ToUnixTimeSeconds() + accessdata.ExpiresIn;
                     Settings.Default.Save();
                 }
-                else if (Settings.Default.tokenExpiresIn <= dto.ToUnixTimeSeconds() + 600) // refresh token 10 minutes earlier than it runs out due to possible differences from local time and server time
+                else if (Settings.Default.TokenExpiresIn <= dto.ToUnixTimeSeconds() + 600) // refresh token 10 minutes earlier than it runs out due to possible differences from local time and server time
                 {
                     windowMain.lblStatus.Content = "Erneuere Token...";
-                    AccessData accessdata = await session.RefreshToken();
-                    Settings.Default.access_token = accessdata.AccessToken;
-                    Settings.Default.refresh_token = accessdata.RefreshToken;
-                    Settings.Default.tokenExpiresIn = dto.ToUnixTimeSeconds() + accessdata.ExpiresIn;
+                    AccessData accessData = await session.RefreshToken();
+                    Settings.Default.AccessToken = accessData.AccessToken;
+                    Settings.Default.RefreshToken = accessData.RefreshToken;
+                    Settings.Default.TokenExpiresIn = dto.ToUnixTimeSeconds() + accessData.ExpiresIn;
                     Settings.Default.Save();
                 }
                 windowMain.lblStatus.Content = "Rufe Wetterdaten ab...";
                 windowMain.lblStationName1.Content = "London"; // HARDCODED
-                windowMain.lblRealStationName1.Content = "Westminster"; // HARDCODED
+                windowMain.lblRealStationName1.Content = "A202 (?)"; // HARDCODED
                 windowMain.lblStationName2.Content = "Los Angeles"; // HARDCODED
                 windowMain.lblRealStationName2.Content = "W 1st St"; // HARDCODED
                 try
                 {
-                    apiResponse[0] = await session.RequestPublicWeatherStationData(Settings.Default.access_token, 51.50350694, -0.12597799, 51.4909232, -0.14267206); // Westminster - HARDCODED
-                    apiResponse[1] = await session.RequestPublicWeatherStationData(Settings.Default.access_token, 34.05422389, -118.22258949, 34.03800893, -118.27237129); // Los Angeles - HARDCODED
+                    apiResponse[0] = await session.RequestPublicWeatherStationData(Settings.Default.AccessToken, 51.50350694, -0.12597799, 51.4909232, -0.14267206); // London - HARDCODED
+                    apiResponse[1] = await session.RequestPublicWeatherStationData(Settings.Default.AccessToken, 34.05422389, -118.22258949, 34.03800893, -118.27237129); // Los Angeles - HARDCODED
                 }
                 catch
                 {
@@ -73,7 +73,7 @@ namespace WeatherCompare
                 }
                 try
                 {
-                    windowMain.lblTemperature1.Content = ProcessWeatherData(apiResponse[0], "70:ee:50:01:f7:00") + "°C"; // HARDCODED - demo station
+                    windowMain.lblTemperature1.Content = ProcessWeatherData(apiResponse[0], "70:ee:50:19:2d:c2") + "°C"; // HARDCODED - demo station
                 }
                 catch (CorrectModuleNotFoundException)
                 {
