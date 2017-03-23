@@ -10,41 +10,41 @@ namespace WeatherCompare
     public class APIResponse
     {
         [JsonProperty("body")]
-        public Body[] body { get; set; }
+        public Body[] Body { get; set; }
         [JsonProperty("status")]
-        public string status { get; set; }
+        public string Status { get; set; }
         [JsonProperty("time_exec")]
-        public float timeToExec { get; set; }
+        public float TimeToExec { get; set; }
         [JsonProperty("time_server")]
-        public int timeServer { get; set; }
+        public int TimeServer { get; set; }
     }
     public class Body
     {
         [JsonProperty("_id")]
-        public string stationID { get; set; }
+        public string StationID { get; set; }
         [JsonProperty("place")]
-        public Place place { get; set; }
+        public Place Place { get; set; }
         [JsonProperty("mark")]
-        public int mark { get; set; }
+        public int Mark { get; set; }
         [JsonProperty("measures")]
-        public Dictionary<string, SingleModule> measures { get; set; }
+        public Dictionary<string, SingleModule> Measures { get; set; }
         [JsonProperty("modules")]
-        public string[] modules { get; set; }
+        public string[] Modules { get; set; }
     }
     public class Place
     {
         [JsonProperty("location")]
-        public float[] coordinates { get; set; }
+        public float[] Coordinates { get; set; }
         [JsonProperty("altitude")]
-        public float altitude { get; set; }
+        public float Altitude { get; set; }
         [JsonProperty("timezone")]
-        public string timezone { get; set; }
+        public string Timezone { get; set; }
     }
     public class SingleModule
     {
         [JsonProperty("res")]
-        public Dictionary<string, double[]> measuredData { get; set; }
+        public Dictionary<string, double[]> MeasuredData { get; set; }
         [JsonProperty("type")]
-        public string[] typeOfModule { get; set; }
+        public string[] TypeOfModule { get; set; }
     }
 }
